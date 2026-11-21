@@ -21,6 +21,6 @@ if ! pgrep -F "$dir/sshd.pid" -u root -x sshd >/dev/null 2>&1; then
     /usr/sbin/sshd -f /etc/ssh/sshd_aula.conf 9>&-
 fi
 
-runuser -u alumno -- ssh -F /etc/ssh/ssh_config.d/20-aula.conf \
+runuser -u alumno -- ssh \
     -o BatchMode=yes -o ConnectTimeout=5 hpc@hpc-local 'test "$(id -un)" = hpc'
 echo 'Aula disponible. Entra con: ssh hpc@hpc-local'

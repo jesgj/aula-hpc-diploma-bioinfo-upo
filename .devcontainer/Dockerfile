@@ -19,8 +19,8 @@ RUN makeblastdb -in /opt/aula-blast/referencias.fasta -dbtype nucl \
     -parse_seqids -out /opt/aula-blast/referencias
 
 COPY --chown=root:root --chmod=0755 .devcontainer/iniciar-ssh.sh /usr/local/sbin/iniciar-ssh-aula
-COPY .devcontainer/sshd_aula.conf /etc/ssh/sshd_aula.conf
-COPY .devcontainer/ssh_aula.conf /etc/ssh/ssh_config.d/20-aula.conf
+COPY --chown=root:root --chmod=0644 .devcontainer/sshd_aula.conf /etc/ssh/sshd_aula.conf
+COPY --chown=root:root --chmod=0644 .devcontainer/ssh_aula.conf /etc/ssh/ssh_config.d/20-aula.conf
 
 RUN install -d -o hpc -g hpc -m 0755 /home/hpc/practica
 COPY --chown=hpc:hpc 01-cola.sbatch 02-blast.sbatch /home/hpc/practica/

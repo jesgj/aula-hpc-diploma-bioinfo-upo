@@ -1,0 +1,9 @@
+{
+  "name": "Aula HPC · Slurm y BLAST+",
+  "build": { "dockerfile": "Dockerfile", "context": ".." },
+  "remoteUser": "alumno",
+  "hostRequirements": { "cpus": 2 },
+  "postStartCommand": "sudo -n /usr/local/sbin/iniciar-aula",
+  "waitFor": "postStartCommand",
+  "otherPortsAttributes": { "onAutoForward": "ignore" }
+}

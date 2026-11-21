@@ -5,5 +5,10 @@
   "hostRequirements": { "cpus": 2 },
   "postStartCommand": "sudo -n /usr/local/sbin/iniciar-aula",
   "waitFor": "postStartCommand",
-  "otherPortsAttributes": { "onAutoForward": "ignore" }
+  "otherPortsAttributes": { "onAutoForward": "ignore" },
+  "customizations": {
+    "vscode": {
+      "settings": { "chat.disableAIFeatures": true }
+    }
+  }
 }
